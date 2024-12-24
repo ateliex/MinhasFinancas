@@ -1,4 +1,4 @@
-﻿namespace MinhasFinancas.Mobile.WinUI
+﻿namespace MinhasFinancas
 {
     public static class MauiProgram
     {

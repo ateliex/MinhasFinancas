@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDisplayName</key>
-    <string>MinhasFinancas.Mobile</string>
+    <string>MinhasFinancas</string>
     <key>CFBundleIdentifier</key>
     <string>com.companyname.minhasfinancas.mobile</string>
     <key>CFBundleShortVersionString</key>

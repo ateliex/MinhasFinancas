@@ -1,7 +1,7 @@
 using ObjCRuntime;
 using UIKit;
 
-namespace MinhasFinancas.Mobile.Mac
+namespace MinhasFinancas
 {
     public class Program
     {

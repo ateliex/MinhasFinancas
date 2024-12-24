@@ -11,7 +11,7 @@
   <mp:PhoneIdentity PhoneProductId="CBC23BCD-E3CE-4614-AE35-0F0F4946836E" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>MinhasFinancas.Mobile</DisplayName>
+    <DisplayName>MinhasFinancas</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -28,8 +28,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="MinhasFinancas.Mobile"
-        Description="MinhasFinancas.Mobile"
+        DisplayName="MinhasFinancas"
+        Description="MinhasFinancas"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

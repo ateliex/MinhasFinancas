@@ -1,4 +1,4 @@
-﻿namespace MinhasFinancas.Mobile.Mac
+﻿namespace MinhasFinancas
 {
     public static class MauiProgram
     {

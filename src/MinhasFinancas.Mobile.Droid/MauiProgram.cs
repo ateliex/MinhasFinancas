@@ -1,4 +1,4 @@
-﻿namespace MinhasFinancas.Mobile.Droid
+﻿namespace MinhasFinancas
 {
     public static class MauiProgram
     {

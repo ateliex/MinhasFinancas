@@ -4,7 +4,7 @@
 		<TargetFramework>net9.0-maccatalyst</TargetFramework>
 		<SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>MinhasFinancas.Mobile</RootNamespace>
+		<RootNamespace>MinhasFinancas</RootNamespace>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseMaui>true</UseMaui>
@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\MinhasFinancas.Mobile\MinhasFinancas.Mobile.csproj" />
+	  <ProjectReference Include="..\MinhasFinancas.Mobile\MinhasFinancas.Mobile.csproj" />
 	</ItemGroup>
 
 </Project>

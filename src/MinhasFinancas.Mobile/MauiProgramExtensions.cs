@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace MinhasFinancas.Mobile
+namespace MinhasFinancas
 {
     public static class MauiProgramExtensions
     {

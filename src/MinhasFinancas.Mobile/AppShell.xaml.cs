@@ -1,4 +1,4 @@
-﻿namespace MinhasFinancas.Mobile
+﻿namespace MinhasFinancas
 {
     public partial class AppShell : Shell
     {

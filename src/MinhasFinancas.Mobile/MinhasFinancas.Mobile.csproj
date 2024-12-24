@@ -4,7 +4,7 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>MinhasFinancas.Mobile</RootNamespace>
+		<RootNamespace>MinhasFinancas</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>

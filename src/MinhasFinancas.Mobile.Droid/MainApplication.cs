@@ -1,7 +1,7 @@
 using Android.App;
 using Android.Runtime;
 
-namespace MinhasFinancas.Mobile.Droid
+namespace MinhasFinancas
 {
     [Application]
     public class MainApplication : MauiApplication

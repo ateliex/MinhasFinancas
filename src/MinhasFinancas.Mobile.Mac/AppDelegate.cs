@@ -1,6 +1,6 @@
 using Foundation;
 
-namespace MinhasFinancas.Mobile.Mac
+namespace MinhasFinancas
 {
     [Register(nameof(AppDelegate))]
     public class AppDelegate : MauiUIApplicationDelegate
