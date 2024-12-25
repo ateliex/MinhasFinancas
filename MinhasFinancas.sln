@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhasFinancas.Mobile", "src\MinhasFinancas.Mobile\MinhasFinancas.Mobile.csproj", "{AB2A0AB3-8B65-416B-8244-B8FE33C10425}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhasFinancas.Mobile.Mac", "src\MinhasFinancas.Mobile.Mac\MinhasFinancas.Mobile.Mac.csproj", "{4AB598B7-73E5-44D7-9833-C072245285FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhasFinancas.Mobile.WinUI", "src\MinhasFinancas.Mobile.WinUI\MinhasFinancas.Mobile.WinUI.csproj", "{AB3BFEE8-7CE6-4DDF-80D5-9C4FF091B7EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhasFinancas.Desktop", "src\MinhasFinancas.Desktop\MinhasFinancas.Desktop.csproj", "{38103F8D-7FBC-44C4-8CCA-F6A2905B4B0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AB3BFEE8-7CE6-4DDF-80D5-9C4FF091B7EC}.Debug|Any CPU.Build.0 = Debug|x64
 		{AB3BFEE8-7CE6-4DDF-80D5-9C4FF091B7EC}.Release|Any CPU.ActiveCfg = Release|x64
 		{AB3BFEE8-7CE6-4DDF-80D5-9C4FF091B7EC}.Release|Any CPU.Build.0 = Release|x64
+		{38103F8D-7FBC-44C4-8CCA-F6A2905B4B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38103F8D-7FBC-44C4-8CCA-F6A2905B4B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38103F8D-7FBC-44C4-8CCA-F6A2905B4B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38103F8D-7FBC-44C4-8CCA-F6A2905B4B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
