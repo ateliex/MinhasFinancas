@@ -1,15 +1,21 @@
-﻿namespace MinhasFinancas
+﻿using MinhasFinancas.Infrastructure;
+
+namespace MinhasFinancas;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
+        var builder = MauiApp.CreateBuilder();
 
-            builder
-                .UseSharedMauiApp();
+        builder
+            .UseSharedMauiApp();
 
-            return builder.Build();
-        }
+
+        var app = builder.Build();
+
+        DbModule.EnsureDatabaseExists(app.Services);
+
+        return app;
     }
 }

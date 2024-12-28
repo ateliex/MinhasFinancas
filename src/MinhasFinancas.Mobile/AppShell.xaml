@@ -3,13 +3,70 @@
     x:Class="MinhasFinancas.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contas="clr-namespace:MinhasFinancas.Pages.Contas"
+    xmlns:categorias="clr-namespace:MinhasFinancas.Pages.Categorias"
     xmlns:local="clr-namespace:MinhasFinancas"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MinhasFinancas">
+    xmlns:pages="clr-namespace:MinhasFinancas.Pages"
+    Title="Minhas Finanças">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black" HeightRequest="200">
+                <Image
+                    Aspect="AspectFill"
+                    Opacity="0.6"
+                    Source="flyout_header.png" />
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    Text="Minhas Finanças"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <!--<ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="flyout_home.png"
+            Route="MainPage" />-->
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        <ShellContent
+            Title="Contas"
+            ContentTemplate="{DataTemplate contas:GestaoContasPage}"
+            Icon="account_balance_24dp.png"
+            Route="Contas" />
 
+        <ShellContent
+            Title="Caixa"
+            ContentTemplate="{DataTemplate contas:GestaoContasPage}"
+            Icon="paid_24dp.png"
+            Route="Caixa" />
+
+        <ShellContent
+            Title="Relatórios"
+            ContentTemplate="{DataTemplate categorias:CadastroCategoriasPage}"
+            Icon="finance_24dp.png"
+            Route="Relatorios" />
+
+        <ShellContent
+            Title="Categorias"
+            ContentTemplate="{DataTemplate categorias:CadastroCategoriasPage}"
+            Icon="category_24dp.png"
+            Route="Categorias" />
+    </FlyoutItem>
+
+    <MenuItem
+        Command="{Binding HelpCommand}"
+        CommandParameter="https://learn.microsoft.com/dotnet/maui/fundamentals/shell"
+        IconImageSource="flyout_usuario.png"
+        Text="Usuário" />
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Configurações"
+            ContentTemplate="{DataTemplate pages:ConfiguracoesPage}"
+            Icon="flyout_configuracoes.png"
+            Route="Configuracoes" />
+    </FlyoutItem>
 </Shell>

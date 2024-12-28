@@ -1,24 +1,30 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using MinhasFinancas.Infrastructure;
 
-namespace MinhasFinancas
+namespace MinhasFinancas;
+
+public static class MauiProgramExtensions
 {
-    public static class MauiProgramExtensions
+    public static MauiAppBuilder UseSharedMauiApp(this MauiAppBuilder builder)
     {
-        public static MauiAppBuilder UseSharedMauiApp(this MauiAppBuilder builder)
-        {
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+        builder
+            .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-            return builder;
-        }
+        builder.Services.AddWindows();
+
+        builder.Services.AddInfrastructure(builder.Configuration);
+
+        return builder;
     }
 }

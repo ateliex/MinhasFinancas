@@ -1,10 +1,13 @@
-﻿namespace MinhasFinancas
+﻿using MinhasFinancas.Pages.Categorias;
+
+namespace MinhasFinancas;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute("Categorias/Categoria", typeof(CategoriaPage));
     }
 }

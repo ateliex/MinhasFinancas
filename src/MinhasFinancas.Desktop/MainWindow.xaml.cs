@@ -1,24 +1,38 @@
-﻿using System.Text;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MinhasFinancas.Pages.Categorias;
+using MinhasFinancas.Pages.Contas;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace MinhasFinancas
+namespace MinhasFinancas;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public IServiceProvider ServiceProvider { get; }
+
+    public MainWindow(IServiceProvider serviceProvider)
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        ServiceProvider = serviceProvider;
+    }
+
+    private void CadastroCategoriasMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        var cadastroCategoriasWindow = ServiceProvider.GetRequiredService<CadastroCategoriasWindow>();
+
+        cadastroCategoriasWindow.Show();
+    }
+
+    private void GestaoContasMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        var gestaoContasWindow = ServiceProvider.GetRequiredService<GestaoContasWindow>();
+
+        gestaoContasWindow.Show();
+    }
+
+    private void configuracoesMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }
