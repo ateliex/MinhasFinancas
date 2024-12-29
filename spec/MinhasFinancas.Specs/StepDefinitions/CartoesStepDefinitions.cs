@@ -7,29 +7,27 @@ using Reqnroll;
 namespace MinhasFinancas.StepDefinitions
 {
     [Binding]
-    public class ApuracaoFinancasStepDefinitions
+    public class CartoesStepDefinitions
     {
-        protected Conta conta;
+        protected CartaoCredito cartao;
 
         protected Pagamento pagamento;
 
-        protected Lancamento lancamento;
-
-        protected readonly Mock<IRepositorioDeContas> repositorioDeContasMock;
+        protected readonly Mock<ICartoesRepository> cartoesRepositoryMock;
 
         protected DateTime hoje = DateTime.Today;
 
-        protected decimal saldoDaContaEsperadoHoje;
+        protected decimal saldoCartaoEsperadoHoje;
 
-        public ApuracaoFinancasStepDefinitions()
+        public CartoesStepDefinitions()
         {
-            repositorioDeContasMock = new Mock<IRepositorioDeContas>();
+            cartoesRepositoryMock = new Mock<ICartoesRepository>();
         }
 
-        [Given("que uma conta tem um saldo de {decimal}")]
+        [Given("que uma tem um saldo de {decimal}")]
         public void GivenQueUmaContaTemUmSaldoDe(decimal saldo)
         {
-            conta = ContasStub.ObtemConta(saldo, hoje, repositorioDeContasMock);
+            cartao = CartoesStub.ObtemCartaoCredito(saldo, hoje, cartoesRepositoryMock);
 
             pagamento = PagamentosStub.ObtemPagamentoComValorQualquer(hoje);
         }
@@ -37,13 +35,13 @@ namespace MinhasFinancas.StepDefinitions
         [When("eu lanço um pagamento nessa conta")]
         public async Task WhenEuLancoUmPagamentoNessaConta()
         {
-            var saldoHoje = await conta.ObtemSaldoNaData(hoje);
+            var saldoHoje = await cartao.ObtemSaldoNaData(hoje);
 
-            saldoDaContaEsperadoHoje = saldoHoje.Valor - pagamento.Valor;
+            saldoCartaoEsperadoHoje = saldoHoje.Valor - pagamento.Valor;
 
             try
             {
-                lancamento = await conta.Lanca(pagamento);
+                await cartao.Pagar(pagamento);
             }
             catch (AggregateException ex)
             {
@@ -54,9 +52,9 @@ namespace MinhasFinancas.StepDefinitions
         [Then("o saldo dessa conta deve ser decrescido do valor do pagamento")]
         public async Task ThenOSaldoDessaContaDeveSerDecrescidoDoValorDoPagamento()
         {
-            var saldoDaConta = await conta.ObtemSaldoNaData(hoje);
+            var saldoConta = await cartao.ObtemSaldoNaData(hoje);
 
-            saldoDaContaEsperadoHoje.Should().Be(saldoDaConta.Valor);
+            saldoCartaoEsperadoHoje.Should().Be(saldoConta.Valor);
         }
     }
 }

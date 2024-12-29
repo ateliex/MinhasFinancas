@@ -87,6 +87,10 @@ public partial class CadastroCategoriasWindow : Window
     {
         var categoria = new Categoria
         {
+            Id = Guid.NewGuid().ToString(),
+            Ativa = true,
+            Nome = "Nova Categoria",
+            TipoId = TipoFinancaEnum.Despesa,
             //CreationDate = DateTime.Now,
         };
 

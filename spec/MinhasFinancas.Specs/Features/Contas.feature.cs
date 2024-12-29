@@ -20,7 +20,7 @@ namespace MinhasFinancas.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class ApuracaoFinancasFeature
+    public partial class ContasFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
@@ -29,9 +29,9 @@ namespace MinhasFinancas.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("pt-br"), "Features", "Apuração Finanças", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("pt-br"), "Features", "Contas", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "ApuracaoFinancas.feature"
+#line 1 "Contas.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -95,13 +95,13 @@ namespace MinhasFinancas.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Sucesso ao lançar um pagamento numa conta")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Apuração Finanças")]
-        public async System.Threading.Tasks.Task SucessoAoLancarUmPagamentoNumaConta()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Sucesso ao lançar uma compra numa fatura de cartão de crédito")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Contas")]
+        public async System.Threading.Tasks.Task SucessoAoLancarUmaCompraNumaFaturaDeCartaoDeCredito()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Sucesso ao lançar um pagamento numa conta", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Sucesso ao lançar uma compra numa fatura de cartão de crédito", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -113,13 +113,50 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 6
- await testRunner.GivenAsync("que uma conta tem um saldo de 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Dado ");
+ await testRunner.GivenAsync("que o cartão tem um limite de 20000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Dado ");
 #line hidden
 #line 7
- await testRunner.WhenAsync("eu lanço um pagamento nessa conta", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quando ");
+ await testRunner.AndAsync("que o cartão tem um limite disponível de 2000", ((string)(null)), ((global::Reqnroll.Table)(null)), "E ");
 #line hidden
 #line 8
- await testRunner.ThenAsync("o saldo dessa conta deve ser decrescido do valor do pagamento", ((string)(null)), ((global::Reqnroll.Table)(null)), "Então ");
+ await testRunner.WhenAsync("eu lançar uma compra de 200 no cartão", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quando ");
+#line hidden
+#line 9
+ await testRunner.ThenAsync("o limite disponível do cartão deverá ser decrescido do valor da compra", ((string)(null)), ((global::Reqnroll.Table)(null)), "Então ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Sucesso ao pagar uma conta")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Contas")]
+        public async System.Threading.Tasks.Task SucessoAoPagarUmaConta()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Sucesso ao pagar uma conta", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 11
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 12
+ await testRunner.GivenAsync("que o cartão tem um limite de 20000", ((string)(null)), ((global::Reqnroll.Table)(null)), "Dado ");
+#line hidden
+#line 13
+ await testRunner.AndAsync("que o cartão tem um limite disponível de 2000", ((string)(null)), ((global::Reqnroll.Table)(null)), "E ");
+#line hidden
+#line 14
+ await testRunner.WhenAsync("eu pagar 2000 desse cartão", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quando ");
+#line hidden
+#line 15
+ await testRunner.ThenAsync("o limite disponível do cartão deverá ser acrescido do valor do pagamento", ((string)(null)), ((global::Reqnroll.Table)(null)), "Então ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

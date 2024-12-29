@@ -5,18 +5,14 @@ namespace MinhasFinancas.Models;
 
 public class Pagamento : ValueObject
 {
-    public virtual Protocolo Protocolo { get; set; }
-
     public decimal Valor { get; set; }
 
     public string Descricao { get; set; }
 
     public DateTime Data { get; set; }
 
-    public Pagamento(Protocolo protocolo, decimal valor, string descricao, DateTime data)
+    public Pagamento(decimal valor, string descricao, DateTime data)
     {
-        Protocolo = protocolo;
-
         Descricao = descricao;
 
         Valor = valor;
@@ -26,8 +22,6 @@ public class Pagamento : ValueObject
 
     protected override IEnumerable<object> GetAtomicValues()
     {
-        yield return Protocolo;
-
         yield return Valor;
 
         yield return Descricao;

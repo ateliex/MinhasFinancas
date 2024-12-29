@@ -9,7 +9,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Command="{Binding CriarNovoCommand}"
-            IconImageSource="criar_novo.png"
+            IconImageSource="add_24dp.png"
             Order="Primary"
             Priority="0"
             Text="Criar Novo" />
@@ -17,10 +17,10 @@
     <Shell.SearchHandler>
         <local:CategoriasSearchHandler
             x:Name="categoriasSearchHandler"
-            ClearIcon="close.png"
+            ClearIcon="close_24dp.png"
             DisplayMemberName="Nome"
             Placeholder="Digite o nome"
-            QueryIcon="search.png"
+            QueryIcon="search_24dp.png"
             ShowsResults="True" />
     </Shell.SearchHandler>
     <StackLayout Margin="10">
@@ -54,7 +54,7 @@
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 FontAttributes="Italic"
-                                Text="{Binding Ativo}"
+                                Text="{Binding Ativa}"
                                 VerticalOptions="End" />-->
                         </Grid>
                     </ViewCell>

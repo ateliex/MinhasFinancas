@@ -79,16 +79,19 @@
                         Width="150"
                         Binding="{Binding Nome}"
                         Header="Nome" />
-                    <DataGridTextColumn
+                    <DataGridCheckBoxColumn
+                        x:Name="ativaColumn"
+                        Width="50"
+                        Binding="{Binding Ativa}"
+                        Header="Ativa" />
+                    <DataGridComboBoxColumn
                         Width="100"
-                        Binding="{Binding TrabalhadorId}"
-                        Header="Trabalhador Id" />
+                        Header="Tipo"
+                        ItemsSource="{Binding Source={system:EnumBindingSourceExtension {x:Type categorias:TipoFinancaEnum}}, Mode=OneWay}"
+                        SelectedValueBinding="{Binding TipoId}" />
                     <DataGridTextColumn
-                        Width="120"
-                        Binding="{Binding CreationDate, StringFormat={}{0:dd/MM/yyyy HH:mm}}"
-                        Header="Creation Date" />
-                    <DataGridTextColumn
-                        Width="250"
+                        Width="*"
+                        MinWidth="100"
                         Binding="{Binding Id}"
                         Header="Id" />
                 </DataGrid.Columns>

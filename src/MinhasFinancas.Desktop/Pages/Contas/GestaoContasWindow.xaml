@@ -83,10 +83,10 @@
                         Binding="{Binding Nome}"
                         Header="Nome" />
                     <DataGridCheckBoxColumn
-                        x:Name="ativoColumn"
+                        x:Name="ativaColumn"
                         Width="50"
-                        Binding="{Binding Ativo}"
-                        Header="Ativo" />
+                        Binding="{Binding Ativa}"
+                        Header="Ativa" />
                     <DataGridTextColumn
                         Width="100"
                         Binding="{Binding TrabalhadorId}"

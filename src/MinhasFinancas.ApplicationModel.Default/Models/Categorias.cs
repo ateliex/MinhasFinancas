@@ -8,14 +8,23 @@ namespace MinhasFinancas.Models;
 
 public class Categoria
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
+
     public string Nome { get; set; }
-    public Categoria(Guid id, string nome)
+
+    public bool Ativa { get; set; }
+
+    public TipoFinancaEnum TipoId { get; set; }
+
+    public Categoria(string id, string nome, TipoFinancaEnum tipoId)
     {
         Id = id;
         Nome = nome;
+        TipoId = tipoId;
     }
+
     public Categoria()
     {
+
     }
 }

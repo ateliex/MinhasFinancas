@@ -50,7 +50,7 @@ public partial class ContaPage : ContentPage
     {
         var empregadores = await _db.Categorias.ToListAsync();
 
-        empregadores.Insert(0, new Categoria { Nome = "" });
+        empregadores.Insert(0, new Categoria() );
 
         Categorias = empregadores;
     }

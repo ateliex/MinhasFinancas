@@ -21,36 +21,33 @@ public class AppDbContext : DbContext
 
     }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    var dataSource = @"C:\temp\MinhasFinancas.db";
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (optionsBuilder.IsConfigured == false)
+        {
+            var dataSource = @"C:\temp\MinhasFinancas.db";
 
-    //    optionsBuilder.UseSqlite($"Data Source={dataSource}");
-    //}
+            optionsBuilder.UseSqlite($"Data Source={dataSource}");
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Conta>()
-            .Property(p => p.Id).ValueGeneratedNever();
+        modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = "salario", Nome = "Salário", TipoId = TipoFinancaEnum.Receita });
+        modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = "compras", Nome = "Compras", TipoId = TipoFinancaEnum.Despesa });
+        modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = "mercado", Nome = "Mercado", TipoId = TipoFinancaEnum.Despesa });
+        modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = "lanches", Nome = "Lanches", TipoId = TipoFinancaEnum.Despesa });
 
-        modelBuilder.Entity<Conta>()
-            .HasIndex(c => new { c.Numero, c.Banco, c.Tipo, c.Documento }).IsUnique();
+        modelBuilder.Entity<Financa>().HasData(new Financa { Id = new Guid("6cd6a787-cc87-4c17-8c75-b18ebc4bf901"), Data = new DateTime(2024, 12, 05), Descricao = "Salário", Valor = 3000.00m, TipoId = TipoFinancaEnum.Receita, CategoriaId = "salario" });
+        modelBuilder.Entity<Financa>().HasData(new Financa { Id = new Guid("6cd6a787-cc87-4c17-8c75-b18ebc4bf902"), Data = new DateTime(2024, 12, 29), Descricao = "Atacadão", Valor = 30.00m, TipoId = TipoFinancaEnum.Despesa, CategoriaId = "mercado" });
+        modelBuilder.Entity<Financa>().HasData(new Financa { Id = new Guid("6cd6a787-cc87-4c17-8c75-b18ebc4bf903"), Data = new DateTime(2024, 12, 29), Descricao = "Mc Donalds", Valor = 45.00m, TipoId = TipoFinancaEnum.Despesa, CategoriaId = "lanches" });
 
-        modelBuilder.Entity<Saldo>()
-            .HasKey(s => new { s.ContaId, s.Data });
-
-        modelBuilder.Entity<Lancamento>()
-            .HasKey(l => l.ProtocoloId);
-
-        modelBuilder.Entity<Lancamento>()
-            .Property(l => l.ProtocoloId).HasMaxLength(24);
-
-        modelBuilder.Entity<Lancamento>()
-            .OwnsOne(l => l.Protocolo, b => b.Property(p => p.Id).HasMaxLength(24).HasColumnName("ProtocoloId").IsRequired());
+        modelBuilder.Entity<Saldo>().HasKey(s => new { s.CartaoId, s.Data });
 
         base.OnModelCreating(modelBuilder);
     }
 
+    public DbSet<Financa> Financas { get; set; }
     public DbSet<Conta> Contas { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
 }

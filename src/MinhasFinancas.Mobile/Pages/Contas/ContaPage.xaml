@@ -20,8 +20,8 @@
                 <Entry Text="{Binding Conta.Nome}" />
             </StackLayout>
             <StackLayout>
-                <Label Text="Ativo" />
-                <CheckBox HorizontalOptions="Start" IsChecked="{Binding Conta.Ativo}" />
+                <Label Text="Ativa" />
+                <CheckBox HorizontalOptions="Start" IsChecked="{Binding Conta.Ativa}" />
             </StackLayout>
             <StackLayout>
                 <Label Text="Empregador" />

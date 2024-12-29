@@ -34,7 +34,7 @@ public partial class CategoriaPage : ContentPage
 
         Categoria = new Categoria
         {
-            Id = Guid.NewGuid()
+            
         };
 
         SalvarCommand = new Command(Salvar);

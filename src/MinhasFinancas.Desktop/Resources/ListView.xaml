@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:MeuPonto">
+    xmlns:local="clr-namespace:MinhasFinancas">
     <Style TargetType="{x:Type ListView}">
         <Setter Property="FontFamily" Value="Calibri" />
         <Setter Property="FontSize" Value="10.5pt" />
